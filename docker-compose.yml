@@ -1,0 +1,38 @@
+nginx:
+  image: nginx
+  restart: always
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - fabric
+  volumes:
+    - ./nginx:/etc/nginx/conf.d
+
+dbdata:
+  image: busybox
+  volumes:
+    - /var/lib/postgresql
+
+pgsqldb:
+  image: postgres
+  restart: always
+  environment:
+    - POSTGRES_USER=fabric
+    - POSTGRES_PASSWORD=5aL9deW8uP32
+  expose:
+    - "5432"
+  volumes_from:
+    - dbdata
+
+fabric:
+  build: ./fabric-bolt
+  command: bash -c "/src/run"
+  restart: always
+  expose:
+    - "8000"
+    - "9000"
+  links:
+    - pgsqldb
+  volumes:
+    - ./fabric-bolt:/root/.fabric-bolt
