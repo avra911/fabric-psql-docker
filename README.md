@@ -1,2 +1,1 @@
-# fabric-psql-docker
-Fabric Bolt + PostgreSQL + Docker = &lt;3
+# Fabric Bolt + PostgreSQL + Docker = &lt;3
