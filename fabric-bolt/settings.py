@@ -16,3 +16,11 @@ DATABASES = {
 }
 
 SECRET_KEY = 'e1rCEoBwnGnsXGSN2Xw1XMJMLlNALLk8KaQQCglUo/5o5fEcMTLP3Q=='
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'mail.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'login@gmail.ru'
+# EMAIL_HOST_PASSWORD = 'password'
