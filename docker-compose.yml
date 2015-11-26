@@ -25,7 +25,7 @@ pgsqldb:
     - dbdata
 
 fabric:
-  image: leominov/fabric-bolt:master
+  image: leominov/fabric-bolt
   command: /src/run
   restart: always
   expose:
