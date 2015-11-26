@@ -3,7 +3,6 @@ nginx:
   restart: always
   ports:
     - "80:80"
-    - "443:443"
   links:
     - fabric
   volumes:
@@ -26,8 +25,8 @@ pgsqldb:
     - dbdata
 
 fabric:
-  build: ./fabric-bolt
-  command: bash -c "/src/run"
+  image: leominov/fabric-bolt:master
+  command: /src/run
   restart: always
   expose:
     - "8000"
