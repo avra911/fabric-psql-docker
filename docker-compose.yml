@@ -35,3 +35,4 @@ fabric:
     - pgsqldb
   volumes:
     - ./fabric-bolt:/root/.fabric-bolt
+    - ./ssh:/root/.ssh

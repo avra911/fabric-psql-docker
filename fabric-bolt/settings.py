@@ -17,6 +17,10 @@ DATABASES = {
 
 SECRET_KEY = 'e1rCEoBwnGnsXGSN2Xw1XMJMLlNALLk8KaQQCglUo/5o5fEcMTLP3Q=='
 
+TIME_ZONE = 'Asia/Yekaterinburg'
+
+LANGUAGE_CODE = 'ru-RU'
+
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # EMAIL_USE_TLS = True
