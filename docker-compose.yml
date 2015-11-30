@@ -19,8 +19,6 @@ postgres:
   image: postgres
   volumes_from:
     - data
-  env_file:
-    - private-data/environment.sh
   restart: always
 
 fabric:

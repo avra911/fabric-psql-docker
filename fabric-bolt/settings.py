@@ -9,10 +9,10 @@ CONF_ROOT = os.path.dirname(__file__)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('POSTGRES_USER') or 'postgres',
-        'USER': os.environ.get('POSTGRES_USER') or 'postgres',
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD') or 'postgres',
-        'HOST': os.environ.get('POSTGRES_HOST') or 'postgres',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
