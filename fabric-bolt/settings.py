@@ -2,24 +2,25 @@ from fabric_bolt.core.settings.base import *
 
 DEBUG = True
 
+LANGUAGE_CODE = 'ru-RU'
+TIME_ZONE = 'Asia/Yekaterinburg'
 CONF_ROOT = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fabric',
-        'USER': 'fabric',
-        'PASSWORD': '5aL9deW8uP32',
-        'HOST': 'pgsqldb',
+        'NAME': os.environ.get('POSTGRES_USER') or 'postgres',
+        'USER': os.environ.get('POSTGRES_USER') or 'postgres',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD') or 'postgres',
+        'HOST': os.environ.get('POSTGRES_HOST') or 'postgres',
         'PORT': '5432',
     }
 }
 
-SECRET_KEY = 'e1rCEoBwnGnsXGSN2Xw1XMJMLlNALLk8KaQQCglUo/5o5fEcMTLP3Q=='
-
-TIME_ZONE = 'Asia/Yekaterinburg'
-
-LANGUAGE_CODE = 'ru-RU'
+# Remeber to set the SECRET_KEY environment variable when putting this into
+# production so no one can spoofe your sessions. Changing this will cause your
+# current user sessions to become invalidated.
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'notasecret'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

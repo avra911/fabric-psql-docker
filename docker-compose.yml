@@ -1,38 +1,38 @@
 nginx:
   image: nginx
-  restart: always
   ports:
     - "80:80"
   links:
     - fabric
   volumes:
     - ./nginx:/etc/nginx/conf.d
+  restart: always
 
-dbdata:
+data:
   image: busybox
   volumes:
-    - /var/lib/postgresql
+    - /data
+    - /var/lib/postgresql/data
+  entrypoint: /bin/echo
 
-pgsqldb:
+postgres:
   image: postgres
-  restart: always
-  environment:
-    - POSTGRES_USER=fabric
-    - POSTGRES_PASSWORD=5aL9deW8uP32
-  expose:
-    - "5432"
   volumes_from:
-    - dbdata
+    - data
+  env_file:
+    - private-data/environment.sh
+  restart: always
 
 fabric:
   image: leominov/fabric-bolt
-  command: /src/run
-  restart: always
-  expose:
-    - "8000"
-    - "9000"
   links:
-    - pgsqldb
+    - postgres
   volumes:
     - ./fabric-bolt:/root/.fabric-bolt
     - ./ssh:/root/.ssh
+  volumes_from:
+    - data
+  command: /src/run
+  env_file:
+    - private-data/environment.sh
+  restart: always
