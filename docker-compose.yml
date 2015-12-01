@@ -30,7 +30,6 @@ fabric:
     - ./ssh:/root/.ssh
   volumes_from:
     - data
-  command: /src/run
   env_file:
     - private-data/environment.sh
   restart: always

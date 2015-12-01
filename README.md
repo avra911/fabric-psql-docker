@@ -9,5 +9,5 @@ docker-compose up -d
 Create super-user:
 
 ```sh
-docker-compose run --rm fabric fabric-bolt createsuperuser
+docker-compose run --entrypoint fabric-bolt --rm fabric createsuperuser
 ```
