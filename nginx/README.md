@@ -1,0 +1,2 @@
+# Nginx
+Host config file.
