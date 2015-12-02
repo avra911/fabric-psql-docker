@@ -26,6 +26,7 @@ fabric:
   links:
     - postgres
   volumes:
+    - /docker-entrypoint-init.d
     - ./fabric-bolt:/root/.fabric-bolt
     - ./ssh:/root/.ssh
   volumes_from:
