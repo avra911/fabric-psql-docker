@@ -11,8 +11,9 @@ nginx:
 data:
   image: busybox
   volumes:
-    - /data
-    - /var/lib/postgresql/data
+    - ./persistent/data:/data
+    - ./persistent/postgresql/var/lib:/var/lib/postgresql/data
+    - ./persistent/src:/src
   entrypoint: /bin/echo
 
 postgres:
